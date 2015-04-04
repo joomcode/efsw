@@ -89,10 +89,10 @@ void WatcherFSEvents::handleAddModDel( const Uint32& flags, const std::string& p
 {
 	if ( flags & efswFSEventStreamEventFlagItemCreated )
 	{
-		if ( FileInfo::exists( path ) )
-		{
+		// if ( FileInfo::exists( path ) )
+		// {
 			sendFileAction( ID, dirPath, filePath, Actions::Add );
-		}
+		// }
 	}
 
 	if ( flags & efswFSEventsModified )
@@ -103,10 +103,10 @@ void WatcherFSEvents::handleAddModDel( const Uint32& flags, const std::string& p
 	if ( flags & efswFSEventStreamEventFlagItemRemoved )
 	{
 		// Since i don't know the order, at least i try to keep the data consistent with the real state
-		if ( !FileInfo::exists( path ) )
-		{
+		// if ( !FileInfo::exists( path ) )
+		// {
 			sendFileAction( ID, dirPath, filePath, Actions::Delete );
-		}
+		// }
 	}
 }
 
